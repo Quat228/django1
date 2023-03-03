@@ -1,3 +1,13 @@
 from django.contrib import admin
+from .models import Item, Purchase
 
-# Register your models here.
+
+@admin.register(Item)
+class ItemAdmin(admin.ModelAdmin):
+    list_display =["name", "price"]
+
+
+@admin.register(Purchase)
+class ItemAdmin(admin.ModelAdmin):
+    list_display = ["name", "age", "item"]
+
