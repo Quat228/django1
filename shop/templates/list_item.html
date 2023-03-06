@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<nav class="navbar navbar-light bg-light">
+  <form class="form-inline" method="post">
+    {% csrf_token %}
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="item_id">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+</nav>
+
+<table class="table table-hover table-dark">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for item in items %}
+    <tr>
+      <th scope="row">{{ item.id }}</th>
+      <td>{{ item.name }}</td>
+      <td>{{ item.price }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock content %}

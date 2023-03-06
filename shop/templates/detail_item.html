@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table class="table table-hover table-dark">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+      <th scope="col">Purchases</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">{{ item.id }}</th>
+      <td>{{ item.name }}</td>
+      <td>{{ item.price }}</td>
+      {% if item.purchases.all %}
+        {% for purchase in item.purchases.all %}
+        <td>
+          {{ purchase.name }}
+          <br>
+          {{ purchase.age }}
+        </td>
+        {% endfor %}
+      {% endif %}
+    </tr>
+  </tbody>
+</table>
+{% endblock content %}
